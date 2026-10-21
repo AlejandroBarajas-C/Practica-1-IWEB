@@ -5,38 +5,99 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 1. Header (#micabecera y .milogo) */
+#micabecera {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  background-color: #282c34;
+  padding: 15px;
+  border-radius: 8px;
+  color: #61dafb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.milogo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
-.card {
-  padding: 2em;
+#mensaje {
+  margin: 0;
+  font-size: 1.4rem;
 }
 
-.read-the-docs {
-  color: #888;
+/* 2. Buscador */
+.buscador {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+}
+
+.buscador div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buscador input {
+  padding: 4px 8px;
+  font-size: 1rem;
+  width: 120px;
+}
+
+#buscar {
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* 3. Resultados y Tarjetas */
+#resultados {
+  margin-top: 30px;
+}
+
+.contenedor-tarjetas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tarjeta {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 130px;
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.tiempoimg {
+  width: 60px;
+  height: 60px;
+}
+
+/* 4. Contenedor de Error */
+#error {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 15px;
+  border: 1px solid #ff4d4f;
+  background-color: #fff1f0;
+  color: #cf1322;
+  border-radius: 8px;
 }
