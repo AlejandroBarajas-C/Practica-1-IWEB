@@ -1,27 +1,30 @@
-import { useState } from 'react'
-import Header from './Header'
-import CONFIG from './config/config'
-import './App.css'
+import { useState } from 'react';
+import Header from './Header';
+import Resultados from './Resultados';
+import CONFIG from './config/config';
+import { mock1 } from './constants/mock';
+import './App.css';
 
 function App() {
-  // Estado para los inputs inicializados con la configuración por defecto
-  const [latitud, setLatitud] = useState(CONFIG.default_lat)
-  const [longitud, setLongitud] = useState(CONFIG.default_lon)
+  const [latitud, setLatitud] = useState(CONFIG.default_lat);
+  const [longitud, setLongitud] = useState(CONFIG.default_lon);
+  
+  // Estado para almacenar los datos recibidos
+  const [datos, setDatos] = useState(null);
 
-  // Función manejadora del botón Buscar (por ahora imprimirá en consola)
   const handleBuscar = () => {
-    console.log("Buscar pulsado. Latitud:", latitud, "Longitud:", longitud)
-  }
+    if (!CONFIG.use_server) {
+      setDatos(mock1); // Usamos mock1 en lugar de mockData
+    } else {
+      console.log("Modo servidor activado");
+    }
+  };
 
   return (
     <div className="App">
-      {/* Requisito 1: Componente Header (1 punto) */}
       <Header />
-
-      {/* Requisito 2: Título de la app (0.5 puntos) */}
       <h2 id="titulo">El tiempo</h2>
 
-      {/* Requisitos 3 y 4: Inputs controlados y botón (2 puntos) */}
       <div className="buscador">
         <div>
           <label htmlFor="latitud">Latitud: </label>
@@ -47,8 +50,11 @@ function App() {
           Buscar
         </button>
       </div>
+
+      {/* Se pasan las props exigidas: numitems y datos */}
+      <Resultados numitems={CONFIG.num_items_show} datos={datos} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
